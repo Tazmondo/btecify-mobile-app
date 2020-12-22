@@ -26,9 +26,9 @@ workflows:
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
       - cd . && flutter packages pub get
-      - cd . && flutter build apk --release
+      - cd . && flutter build apk --debug
       - find . -name "Podfile" -execdir pod install \;
-      - cd . && flutter build ios --release --no-codesign
+      - cd . && flutter build ios --debug --no-codesign
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
